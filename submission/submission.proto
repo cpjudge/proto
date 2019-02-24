@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package submission;
+
+// Exported interface
+service Sandbox   {
+
+    // Submits code to sandbox service and receives status of code submission
+    rpc SubmitCode (Submission) returns (CodeStatus)  {}
+}
+
+message Submission  {
+    string testcasesPath = 1;
+    string submissionPath = 2;
+    string language = 3;
+    string submission_id = 4;
+    string user_id = 5;
+    string question_id = 6;
+}
+
+// Ref: https://www.quora.com/What-is-WA-RTE-CTE-and-TLE-on-CodeChef
+enum SubmissionStatus {
+    CORRECT_ANSWER = 0;
+    WRONG_ANSWER = 1;
+    TIME_LIMIT_EXCEEDED = 2;
+    COMPILATION_ERROR = 3;
+    RUNTIME_ERROR = 4;
+}
+
+message CodeStatus  {
+    SubmissionStatus code_status = 1;
+}
+
