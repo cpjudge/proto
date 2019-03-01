@@ -25,6 +25,7 @@ enum SubmissionStatus {
     TIME_LIMIT_EXCEEDED = 2;
     COMPILATION_ERROR = 3;
     RUNTIME_ERROR = 4;
+    TO_BE_EVALUATED = 5;
 }
 
 message CodeStatus  {
