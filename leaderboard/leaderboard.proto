@@ -1,0 +1,21 @@
+syntax="proto3";
+
+service Leaderboard{
+    // Returns Participants in sorted order for each Contest
+    rpc GetLeaderboard (stream Contest) returns (stream Participants) {};
+}
+
+message Contest{
+    string contest_id = 1;
+}
+
+message Participants{
+    repeated Participant participant = 2;
+}
+
+message Participant{
+    string user_id = 3;
+    string username = 4;
+    int32 rating = 5;
+    int32 no_of_questions = 6;
+}

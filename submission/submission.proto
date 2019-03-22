@@ -20,15 +20,12 @@ message Submission  {
 
 // Ref: https://www.quora.com/What-is-WA-RTE-CTE-and-TLE-on-CodeChef
 enum SubmissionStatus {
-    CORRECT_ANSWER = 0;
-    WRONG_ANSWER = 1;
-    TIME_LIMIT_EXCEEDED = 2;
-    COMPILATION_ERROR = 3;
-    RUNTIME_ERROR = 4;
-    TO_BE_EVALUATED = 5;
+    TIME_LIMIT_EXCEEDED = 0;
+    COMPILATION_ERROR = 1;
+    TO_BE_EVALUATED = 2;
 }
 
 message CodeStatus  {
-    SubmissionStatus code_status = 1;
+    SubmissionStatus code_status = 2;
 }
 
