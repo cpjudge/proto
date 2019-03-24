@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package evaluator;
+import "submission/submission.proto";
+
+option go_package="github.com/cpjudge/cpjudge_webserver";
+service Evaluator{
+    rpc EvaluateCode (submission.Submission) returns (CodeStatus) {};
+}
+
+// Ref: https://www.quora.com/What-is-WA-RTE-CTE-and-TLE-on-CodeChef
+enum EvaluationStatus {
+    CORRECT_ANSWER = 0;
+    WRONG_ANSWER = 1;
+    TIME_LIMIT_EXCEEDED = 2;
+    COMPILATION_ERROR = 3;
+    RUNTIME_ERROR = 4;
+}
+
+message CodeStatus  {
+    EvaluationStatus code_status = 1;
+}
